@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    
+        <meta name="description" content="Predicting Customer Churn Risk with Random Forest and K-mean Clustering Business Understanding1.Important concepts 
+a)Data Science: Data Science is a ">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Yicheng Teng">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="Project Summary"/>
+    
+
+    <!--Open Graph Description-->
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="Yicheng Teng&#39;s Blog"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article" />
+    
+
+    <!--Page Cover-->
+    
+
+    <meta name="twitter:card" content="summary" />
+    
+
+    <!-- Title -->
+    
+    <title>Project Summary - Yicheng Teng&#39;s Blog</title>
+
+    <!-- Tachyons Core CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/tachyons/css/tachyons.min.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <!-- Google Analytics -->
+    
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+
+<body>
+
+<!-- Main Content -->
+<!-- Banner -->
+<!-- Banner -->
+<div class="w-100 bg-1 ph5-ns ph3 text-light">
+    
+    <nav class="db dt-l w-100 mw8 center border-box pv3">
+        <a class="db dtc-l v-mid link dim w-100 w-25-l tc tl-l mb2 mb0-l white" href="/" title="Yicheng Teng's Blog">
+            <img src="http://www.codeblocq.com/assets/projects/hexo-theme-anodyne/assets/anodyne.svg" class="dib h3" alt="Yicheng Teng's Blog">
+        </a>
+        <div class="db dtc-l v-mid w-100 w-75-l tc tr-l">
+            
+                <a class="link dim f6 f5-l dib mr3 mr4-l white" 
+                    href="/" 
+                    title="Home">
+                    Home
+                </a>
+            
+                <a class="link dim f6 f5-l dib mr3 mr4-l white" 
+                    href="/archives" 
+                    title="Archives">
+                    Archives
+                </a>
+            
+        </div>
+    </nav>
+
+    <!-- Title -->
+    <div class="w-100 mw8 center vh-40 dt">
+        <div class="dtc v-mid white">
+            <h1 class="f1-l f2-m tc tc-m tl-ns">Project Summary</h1>
+            <p class="f4 fw3 pab-100px tc tc-m tl-ns">2020-04-13</p>
+        </div>
+    </div>
+
+    <!-- Icon -->
+    <div class="relative w-100 mw8 center white dn dn-m db-ns">
+        <i class="header-icon fa fa-file-text-o"></i>
+    </div>
+</div>
+
+<!-- Content -->
+<div class="w-100 ph2 ph4-m ph5-l mv5 mv6-l">
+    <div class="content">
+        <div class="mw8 center">
+            <div class="cf">
+                <div class="fl w-100 w-70-l mw7 left fw3 lh-copy pr4-ns pr0-m post-content">
+                    <!-- Tags Vertical -->
+                    
+
+                    <!-- Main Post Content -->
+                    <h2 id="Predicting-Customer-Churn-Risk-with-Random-Forest-and-K-mean-Clustering"><a href="#Predicting-Customer-Churn-Risk-with-Random-Forest-and-K-mean-Clustering" class="headerlink" title="Predicting Customer Churn Risk with Random Forest and K-mean Clustering "></a><center>Predicting Customer Churn Risk with Random Forest and K-mean Clustering </center></h2><h3 id="Business-Understanding"><a href="#Business-Understanding" class="headerlink" title="Business Understanding"></a>Business Understanding</h3><p><strong>1.Important concepts</strong> </p>
+<pre><code>a)Data Science: Data Science is a field of study that uses specific scientific process such as statistics, programming, and business to extract knowledge, patterns, or insights from different kinds of data
+
+b)Marketing: Marketing is the study to find the need or desire of the customer and try to sell products to gain profit from them. Market segmentation is to divide customers into different groups based on their characteristics such as old - young, high value - low value. Churn is the loss of current customers. It is very important to try to minimize churn because it is costly for a company to lose them.</code></pre><p><strong>2.Problems to be solved</strong> </p>
+<pre><code>a)What is the problem: a car insurance company is suffering from the loss of customers, whereas customers are trying to find a insurance that matches their demand in a better way. 
+
+b)How to solve the problem: Data science is very helpful to solve this problem. Through data, we can have a better understanding of the customer and reduce the customer churn rate. On the other hand, we can offer the right insurance program to the customer and maximize the profit we can get.</code></pre><p><img src="/2020/04/13/Project-Summary/1.png" alt="1"></p>
+<center>Figure 1: Six Stages of Data Analysis Process</center>
+
+<h3 id="Data-Cleaning"><a href="#Data-Cleaning" class="headerlink" title="Data Cleaning"></a>Data Cleaning</h3><p><strong>1.What should be cleaned and how</strong></p>
+<pre><code>a)Convert into different data types’
+
+b)Remove null values
+    i)Remove null values
+    ii)Fill null values</code></pre><p><strong>2.Data Cleaning Efforts</strong> </p>
+<p>#we can use this function to check the number of null values in each dataframe</p>
+<p>colSums(is.na(watson))</p>
+<p>#There is no null value in the whole dataset, and all data types are correct</p>
+<p>#No need for data cleaning</p>
+<p><img src="/2020/04/13/Project-Summary/2.png" alt="2"></p>
+<p><img src="/2020/04/13/Project-Summary/3.png" alt="3"></p>
+<p>From the pictures above, we can see that there are no null values in the data and all data types are correct, so there is no need for data cleaning.</p>
+<h2 id="Data-Visualization"><a href="#Data-Visualization" class="headerlink" title="Data Visualization"></a>Data Visualization</h2><p><strong>1.There are typically three types of plots for data visualization:</strong> </p>
+<ul>
+<li>Plot 1: Scatter plot<ul>
+<li>X-Axis: One variable</li>
+<li>Y-Axis: Another variable</li>
+<li>Usage: Explain the trend / relationship</li>
+</ul>
+</li>
+<li>Plot 2: Bar Chart<ul>
+<li>X-Axis: Different Categories</li>
+<li>Y-Axis: Numeric Variables</li>
+<li>Usage: Compare different values</li>
+</ul>
+</li>
+<li>Plot 3: Box Plot<ul>
+<li>X-Axis: Category</li>
+<li>Y-Axis: 25th Percentile, Median, 75th Percentile</li>
+<li>Usage: Compare the distribution of one numeric variable among categories</li>
+</ul>
+</li>
+</ul>
+<p><strong>2. In this project we used data visualization to draw interesting insights to support our further analysis as shown below:</strong> </p>
+<ul>
+<li>Plot 1: response rate for different education levels <ul>
+<li>We can see that the higher the education levels are, the higher the response rate.</li>
+</ul>
+</li>
+<li>Plot 2: response rate for different employment status<ul>
+<li>In this chart, the response rate from retired people is much higher than other groups of people.</li>
+</ul>
+</li>
+<li>Plot 3: response rate for different income ranges<ul>
+<li>People with no income has the lowest response rate</li>
+<li>Among people with income, the response rate decreases as the income increases.</li>
+</ul>
+</li>
+</ul>
+<p><img src="/2020/04/13/Project-Summary/4.png" alt="4"></p>
+<h2 id="Data-Modelling-amp-Model-Evaluation"><a href="#Data-Modelling-amp-Model-Evaluation" class="headerlink" title="Data Modelling &amp; Model Evaluation"></a>Data Modelling &amp; Model Evaluation</h2><p><strong>1.Introduction of the two machine learning models:</strong> </p>
+<p>In this project, we mainly used 2 machine learning algorithms to classify the customers into 2 categories: respond/not respond</p>
+<pre><code>a)**Decision Tree**: Help to distinguish different categories by features with exact criteria
+
+b)Random Forest: 
+    - Wisdom of crowd: The average estimation of a group of people is normally more accurate than any individual estimation
+    - Random Forest utilizes the wisdom of crowd by averaging the estimation of different decision trees which are randomly generated from the original dataset
+    - Working Principle of Random Forest:
+        - Step 1: Randomly select rows(instances) from the dataset to build trees (normally build 10 trees)
+        - Step 2: Randomly select the splitting criteria to build the 10 decision trees
+        - Step 3: For every row, use those 10 decision trees to predict the probability. Then we get 10 predicted probabilities for every class
+        - Step 4: Average those 10 probabilities as the final probability
+        - Step 5: Predict the class with higher probability</code></pre><p><strong>2.Modelling Evaluation Criteria: Cross-Validation</strong></p>
+<p>We used cross validation to evaluate the model performance and avoid overfitting of those algorithms. Here we mainly used N-fold cross validation</p>
+<ul>
+<li><p>N-fold Cross Validation typically works in the following steps: </p>
+<ul>
+<li>Step 1: Divide the dataset into n subsets</li>
+<li>Step 2: Use one of the subsets as a testing set, and all the other (n-1) subsets as a training set. Do this n times</li>
+<li>Step 3: Find the model choice that has the best performance</li>
+</ul>
+</li>
+</ul>
+<p><strong>3.Modelling efforts:</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">##### Machine Learning #####</span></span><br><span class="line"><span class="comment">#install.packages("randomForest")</span></span><br><span class="line">library(randomForest)</span><br><span class="line">library(tree)</span><br><span class="line"><span class="comment"># we need to write a for-loop to achieve the function</span></span><br><span class="line"><span class="keyword">for</span>(k <span class="keyword">in</span> <span class="number">1</span>:nfold)&#123;</span><br><span class="line">  <span class="comment"># split into training and testing</span></span><br><span class="line">  training = watson_fold %&gt;%</span><br><span class="line">    filter(foldid!=k)</span><br><span class="line"></span><br><span class="line">  testing = watson_fold %&gt;% </span><br><span class="line">    filter(foldid==k)</span><br><span class="line"></span><br><span class="line">  <span class="comment">#### Decision Tree Model #####</span></span><br><span class="line">  <span class="comment"># build the decision tree model</span></span><br><span class="line">  dt&lt;-tree(formula=Response~.-Customer-Effective.To.Date-foldid, data=watson)</span><br><span class="line">  <span class="comment"># get the predicted prob on testing </span></span><br><span class="line">  dt_prob &lt;- predict(dt, newdata=testing)</span><br><span class="line"></span><br><span class="line">  dt_result &lt;- case_when(</span><br><span class="line">    dt_prob[,<span class="number">2</span>]&gt;=<span class="number">0.5</span> ~<span class="string">'Yes'</span>,</span><br><span class="line">    dt_prob[,<span class="number">2</span>]&lt;<span class="number">0.5</span> ~ <span class="string">'No'</span></span><br><span class="line">)</span><br><span class="line">  testing = testing %&gt;%</span><br><span class="line">    mutate(result=dt_result)</span><br><span class="line">  <span class="comment"># if accurate, then acc=1, if not, then acc=0</span></span><br><span class="line">  acc &lt;- case_when(</span><br><span class="line">    testing$result == testing$Response ~ <span class="number">1</span>,</span><br><span class="line">    testing$result != testing$Response ~ <span class="number">0</span> </span><br><span class="line">  )</span><br><span class="line">  <span class="comment"># calculate the accuracy in each case</span></span><br><span class="line">  model_accuracy$DecisionTree[k]=mean(acc)</span><br><span class="line"></span><br><span class="line">  <span class="comment">#### Random Forest Model ####</span></span><br><span class="line">  <span class="comment"># build the random forest model on training</span></span><br><span class="line">  rf &lt;- randomForest(formula=Response~.-Customer-Effective.To.Date-foldid, data=training)</span><br><span class="line">  <span class="comment"># get the predicted prob on testing</span></span><br><span class="line">  rf_prob &lt;- predict(rf, newdata=testing, type=<span class="string">'prob'</span>)</span><br><span class="line">  <span class="comment"># change the probability into 'Yes' or 'No'</span></span><br><span class="line">  rf_result &lt;- case_when(</span><br><span class="line">    rf_prob[,<span class="number">2</span>]&gt;=<span class="number">0.5</span> ~<span class="string">'Yes'</span>,</span><br><span class="line">    rf_prob[,<span class="number">2</span>]&lt;<span class="number">0.5</span> ~ <span class="string">'No'</span>)</span><br><span class="line"></span><br><span class="line">  testing=testing %&gt;%</span><br><span class="line">    mutate(result2=rf_result)</span><br><span class="line">  <span class="comment"># if accurate, then acc=1, if not, then acc=0</span></span><br><span class="line">  acc2 &lt;- case_when(</span><br><span class="line">    testing$result2 == testing$Response ~ <span class="number">1</span>,</span><br><span class="line">    testing$result2 != testing$Response ~ <span class="number">0</span> </span><br><span class="line">  )</span><br><span class="line"></span><br><span class="line">  <span class="comment"># calculate the accuracy in each case</span></span><br><span class="line">  model_accuracy$RandomForest[k]=mean(acc2)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment"># print the final predicted accuracy of random forest </span></span><br><span class="line">cat(<span class="string">'The accuracy of decision tree is'</span>, mean(model_accuracy$DecisionTree))</span><br><span class="line">cat(<span class="string">'The accuracy of random forest is'</span>, mean(model_accuracy$RandomForest))</span><br><span class="line"><span class="comment"># the accuracy is 0.99! for such a complicated dataset, the random forest is much more accurate than decision tree.</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># conclusion: as a result, we select random forest as our model for prediction</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>4.Performance and choice of models</strong>  </p>
+<p>We can see that the random forest is much more accurate than the decision tree. Therefore, we chose random forest for this project.</p>
+<h3 id="Clustering-amp-Business-Deployment"><a href="#Clustering-amp-Business-Deployment" class="headerlink" title="Clustering &amp; Business Deployment"></a>Clustering &amp; Business Deployment</h3><p><strong>1.Introduction to the clustering concept</strong></p>
+<p>Clustering is a process of grouping data into groups (clusters) so: </p>
+<ul>
+<li>Objects within a cluster are similar</li>
+<li>But dissimilar to objects in other clusters </li>
+</ul>
+<p><strong>2.Application:</strong></p>
+<p>Clustering can be used for Customer Segmentation to understand the customers better </p>
+<p><strong>3.K-mean Clustering: K-mean clustering is a clustering</strong></p>
+<p> approach which clusters data into K different groups based on their similarities/distances</p>
+<p><strong>4.Clustering efforts:</strong> </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#####Clustering #####</span></span><br><span class="line"><span class="comment"># we then use random forest to predict the probability of churn and name that as the risk for each customer </span></span><br><span class="line">watson$risk &lt;-predict(rf, newdata=watson, type=<span class="string">'prob'</span>)[,<span class="number">1</span>]</span><br><span class="line"><span class="comment"># then we could try to plot the scatter plot of risk and customer lifetime value </span></span><br><span class="line">ggplot(data=watson, aes(x=risk, y=Customer.Lifetime.Value))+geom_point()</span><br><span class="line"><span class="comment"># cluster into 4 different groups </span></span><br><span class="line">segment &lt;- watson[c(<span class="number">3</span>,<span class="number">25</span>)]</span><br><span class="line"><span class="comment"># what if we just cluster this segment into 4 different groups: </span></span><br><span class="line">cus_seg &lt;- kmeans(segment, <span class="number">4</span>)</span><br><span class="line"><span class="comment"># plot the result of segmentation c</span></span><br><span class="line">ggplot(data=segment, aes(x=risk, y=Customer.Lifetime.Value, color=cus_seg$cluster)) +</span><br><span class="line">  geom_point() + scale_fill_continuous(name = <span class="string">"Clusters"</span>) + </span><br><span class="line">  labs(title =<span class="string">"Customer Segmentation Based on Risk and CLV"</span>, x = <span class="string">"Risk"</span>, y = <span class="string">"Customer Lifetime Value"</span>, color = <span class="string">"Clusters"</span>) + </span><br><span class="line">  theme(plot.title = element_text(hjust = <span class="number">0.5</span>))</span><br><span class="line"><span class="comment"># now we could see that the segmentation is totally based on lifetime value, which means risk doesn't play a role in the segmentation </span></span><br><span class="line"><span class="comment"># this is because the absolute value of Customer Life Time Value is too high</span></span><br><span class="line"><span class="comment"># we need to change it onto the same scale</span></span><br><span class="line">segment_scale &lt;- data.frame(scale(segment))</span><br><span class="line">cus_seg_scale &lt;- kmeans(segment_scale, <span class="number">4</span>)</span><br><span class="line">ggplot(data=segment_scale, aes(x=risk, y=Customer.Lifetime.Value, color=cus_seg_scale$cluster)) +</span><br><span class="line">  geom_point() + scale_fill_continuous(name = <span class="string">"Clusters"</span>) +</span><br><span class="line">  labs(title =<span class="string">"Customer Segmentation Based on Risk and CLV"</span>, x = <span class="string">"Risk"</span>, y = <span class="string">"Customer Lifetime Value"</span>, color = <span class="string">"Clusters"</span>) + </span><br><span class="line">  theme(plot.title = element_text(hjust = <span class="number">0.5</span>))</span><br></pre></td></tr></table></figure>
+
+<p><strong>5.Market Segmentation based on Clustering results:</strong> </p>
+<p>After clustering, our customers can be segmented into the following 4 groups based on their risk and lifetime value. </p>
+<p>Group 1: Low risk &amp; Low Value</p>
+<p>Group 2: High risk &amp; Low Value </p>
+<p>Group 3: High risk &amp; Middle Value </p>
+<p>Group 4: High risk &amp; High Value  </p>
+<p><img src="/2020/04/13/Project-Summary/5.png" alt="5"></p>
+<p><strong>6.Business Insights and Suggestions for marketing department:</strong></p>
+<p>An efficient way of market segmentation Could help them identify high risk &amp; high value customers in advance and take proactive measures to retain those customers. First, we should try our best to maintain the first group of customers, which are the low risk &amp; low value customers. This group of customers can steadily increase the profit of the company. High risk &amp; high value customers are very important to a company, and we should also try our best to not lose them. The high rick &amp; middle value and high risk &amp; low value group are not as important, and we should be prepared to lose them if we have to in order to maintain the two other groups.</p>
+
+                    
+                    <!-- Tags Bottom -->
+                    
+
+                    <!-- Comments -->
+                    
+
+
+
+                </div>
+                <div class="fl w-100 w-30-l center fw3 lh-copy pl4-ns tl black-50">
+                    
+                    <hr class="dn-l mw4 black-50 mt5" />
+                    
+                    <!-- Widget 1: About -->
+                    <div class="mt5 mt0-l">
+    <article class="dt db-l mw8 mw8-m mw5-ns center ml0-l bg-white mv3">
+        <div class="dn dtc-m db-l v-mid tc pr4 pr0-l" style="min-width: 6rem;">
+            <img src="http://tachyons.io/img/avatar_1.jpg" class="mb4-l br-100 h3 w3 h4-l w4-l dib" title="Yicheng Teng">
+        </div>
+        <div class="dtc db-l v-mid lh-copy measure center f6 black-50 tj">
+            My name is Yicheng Teng and this is my blog.<br>I am a America high school student and would choose Computer Science as my future major.<br> My hobbies are film making, piano and golf.<br>
+        </div>
+    </article>
+</div>
+
+                    <hr class="dn-l mw4 black-50 mt5" />
+                    
+                    <!-- Widget 2: Categories -->
+                    
+
+                    <!-- Widget 3: Recent Posts -->
+                    <div class="mt5 tc tl-l">
+    <h3>Recent Posts</h3>
+    
+        <p>
+            <a href="/2020/04/13/Project-Summary/">Project Summary</a>
+        </p>
+    
+        <p>
+            <a href="/2020/04/13/National-Robotic-Competition/">National-Robotic-Competition</a>
+        </p>
+    
+        <p>
+            <a href="/2020/04/13/Paintings/">Paintings</a>
+        </p>
+    
+        <p>
+            <a href="/2020/04/13/Research-Plan/">Research-Plan</a>
+        </p>
+    
+        <p>
+            <a href="/2020/04/13/Vedios/">Vedios</a>
+        </p>
+    
+</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Footer -->
+<div class="bg-1 ph2 ph5-ns pv5">
+        <div class="mv8">
+            <div class="center tc">
+                
+                    <div class="dib mh3">
+                        <a class="f3 f2-ns white dim" href="https://github.com/yteng23/yteng23.github.io" target="_blank">
+                            <i class="fa fa-github"></i>
+                        </a>
+                    </div>
+                
+            </div>
+            <div class="f6 f5-ns center tc white pt5 fw3">
+                @Untitled. All right reserved | Design & Hexo <a class="link dim white" href="http://www.codeblocq.com/" target="_blank" rel="noopener">Jonathan Klughertz</a>
+            </div>
+        </div>
+    </div>
+
+<!-- After Footer -->
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>
