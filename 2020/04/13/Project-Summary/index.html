@@ -11,7 +11,7 @@
     <!--Description-->
     
         <meta name="description" content="Predicting Customer Churn Risk with Random Forest and K-mean Clustering Business Understanding1.Important concepts 
-a)Data Science: Data Science is a ">
+  a)Data Science: Data Science is ">
     
 
     <!--Author-->
@@ -123,24 +123,31 @@ a)Data Science: Data Science is a ">
 
                     <!-- Main Post Content -->
                     <h2 id="Predicting-Customer-Churn-Risk-with-Random-Forest-and-K-mean-Clustering"><a href="#Predicting-Customer-Churn-Risk-with-Random-Forest-and-K-mean-Clustering" class="headerlink" title="Predicting Customer Churn Risk with Random Forest and K-mean Clustering "></a><center>Predicting Customer Churn Risk with Random Forest and K-mean Clustering </center></h2><h3 id="Business-Understanding"><a href="#Business-Understanding" class="headerlink" title="Business Understanding"></a>Business Understanding</h3><p><strong>1.Important concepts</strong> </p>
-<pre><code>a)Data Science: Data Science is a field of study that uses specific scientific process such as statistics, programming, and business to extract knowledge, patterns, or insights from different kinds of data
-
-b)Marketing: Marketing is the study to find the need or desire of the customer and try to sell products to gain profit from them. Market segmentation is to divide customers into different groups based on their characteristics such as old - young, high value - low value. Churn is the loss of current customers. It is very important to try to minimize churn because it is costly for a company to lose them.</code></pre><p><strong>2.Problems to be solved</strong> </p>
-<pre><code>a)What is the problem: a car insurance company is suffering from the loss of customers, whereas customers are trying to find a insurance that matches their demand in a better way. 
-
-b)How to solve the problem: Data science is very helpful to solve this problem. Through data, we can have a better understanding of the customer and reduce the customer churn rate. On the other hand, we can offer the right insurance program to the customer and maximize the profit we can get.</code></pre><p><img src="/2020/04/13/Project-Summary/1.png" alt="1"></p>
+<p>  a)Data Science: Data Science is a field of study that uses specific scientific process such as statistics, programming, and business to extract knowledge, patterns, or insights from different kinds of data</p>
+<p>  b)Marketing: Marketing is the study to find the need or desire of the customer and try to sell products to gain profit from them. Market segmentation is to divide customers into different groups based on their characteristics such as old - young, high value - low value. Churn is the loss of current customers. It is very important to try to minimize churn because it is costly for a company to lose them.</p>
+<p><strong>2.Problems to be solved</strong> </p>
+<ul>
+<li><p>a. What is the problem: a car insurance company is suffering from the loss of customers, whereas customers are trying to find a insurance that matches their demand in a better way. </p>
+</li>
+<li><p>b. How to solve the problem: Data science is very helpful to solve this problem. Through data, we can have a better understanding of the customer and reduce the customer churn rate. On the other hand, we can offer the right insurance program to the customer and maximize the profit we can get.</p>
+</li>
+</ul>
+<p><img src="/2020/04/13/Project-Summary/1.png" alt="1"></p>
 <center>Figure 1: Six Stages of Data Analysis Process</center>
 
 <h3 id="Data-Cleaning"><a href="#Data-Cleaning" class="headerlink" title="Data Cleaning"></a>Data Cleaning</h3><p><strong>1.What should be cleaned and how</strong></p>
-<pre><code>a)Convert into different data types’
-
-b)Remove null values
-    i)Remove null values
-    ii)Fill null values</code></pre><p><strong>2.Data Cleaning Efforts</strong> </p>
-<p>#we can use this function to check the number of null values in each dataframe</p>
-<p>colSums(is.na(watson))</p>
-<p>#There is no null value in the whole dataset, and all data types are correct</p>
-<p>#No need for data cleaning</p>
+<ul>
+<li><p>a. Convert into different data types’</p>
+</li>
+<li><p>b. Remove null values</p>
+<ul>
+<li>i. Remove null values</li>
+<li>ii. Fill null values</li>
+</ul>
+</li>
+</ul>
+<p><strong>2.Data Cleaning Efforts</strong> </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#we can use this function to check the number of null values in each dataframe</span></span><br><span class="line"></span><br><span class="line">colSums(<span class="keyword">is</span>.na(watson))</span><br><span class="line"></span><br><span class="line"><span class="comment">#There is no null value in the whole dataset, and all data types are correct</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#No need for data cleaning</span></span><br></pre></td></tr></table></figure>
 <p><img src="/2020/04/13/Project-Summary/2.png" alt="2"></p>
 <p><img src="/2020/04/13/Project-Summary/3.png" alt="3"></p>
 <p>From the pictures above, we can see that there are no null values in the data and all data types are correct, so there is no need for data cleaning.</p>
@@ -184,17 +191,25 @@ b)Remove null values
 <p><img src="/2020/04/13/Project-Summary/4.png" alt="4"></p>
 <h2 id="Data-Modelling-amp-Model-Evaluation"><a href="#Data-Modelling-amp-Model-Evaluation" class="headerlink" title="Data Modelling &amp; Model Evaluation"></a>Data Modelling &amp; Model Evaluation</h2><p><strong>1.Introduction of the two machine learning models:</strong> </p>
 <p>In this project, we mainly used 2 machine learning algorithms to classify the customers into 2 categories: respond/not respond</p>
-<pre><code>a)**Decision Tree**: Help to distinguish different categories by features with exact criteria
-
-b)Random Forest: 
-    - Wisdom of crowd: The average estimation of a group of people is normally more accurate than any individual estimation
-    - Random Forest utilizes the wisdom of crowd by averaging the estimation of different decision trees which are randomly generated from the original dataset
-    - Working Principle of Random Forest:
-        - Step 1: Randomly select rows(instances) from the dataset to build trees (normally build 10 trees)
-        - Step 2: Randomly select the splitting criteria to build the 10 decision trees
-        - Step 3: For every row, use those 10 decision trees to predict the probability. Then we get 10 predicted probabilities for every class
-        - Step 4: Average those 10 probabilities as the final probability
-        - Step 5: Predict the class with higher probability</code></pre><p><strong>2.Modelling Evaluation Criteria: Cross-Validation</strong></p>
+<ul>
+<li><p>a)<strong>Decision Tree</strong>: Help to distinguish different categories by features with exact criteria</p>
+</li>
+<li><p>b)Random Forest: </p>
+<ul>
+<li>Wisdom of crowd: The average estimation of a group of people is normally more accurate than any individual estimation</li>
+<li>Random Forest utilizes the wisdom of crowd by averaging the estimation of different decision trees which are randomly generated from the original dataset</li>
+<li>Working Principle of Random Forest:<ul>
+<li>Step 1: Randomly select rows(instances) from the dataset to build trees (normally build 10 trees)</li>
+<li>Step 2: Randomly select the splitting criteria to build the 10 decision trees</li>
+<li>Step 3: For every row, use those 10 decision trees to predict the probability. Then we get 10 predicted probabilities for every class</li>
+<li>Step 4: Average those 10 probabilities as the final probability</li>
+<li>Step 5: Predict the class with higher probability</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>2.Modelling Evaluation Criteria: Cross-Validation</strong></p>
 <p>We used cross validation to evaluate the model performance and avoid overfitting of those algorithms. Here we mainly used N-fold cross validation</p>
 <ul>
 <li><p>N-fold Cross Validation typically works in the following steps: </p>
